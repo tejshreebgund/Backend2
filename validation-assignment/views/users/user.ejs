@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>upload file</title>
+  </head>
+  <style>
+   body {
+      background-color: rgb(243, 234, 236);
+    }h1{
+      text-align: center;
+      font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    }label{
+      font-size: 20px;
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
+    }
+    
+   
+    .hidden {
+      display: none;
+    }
+    .show {
+      display: block;
+    }input{
+      width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  margin-bottom: 15px;
+    }.formdiv{
+      width: 800px;
+      margin: auto;
+   
+    }
+    #inputButton{
+      height: 40px;
+      width: 140px;
+      font-weight: bold;
+      font-size: 20px;
+      border-width: 2px;
+      margin-left: 320px;
+    }
+  </style>
+  <body>
+    
+    <h1>Register Here</h1>
+    <div class="formdiv">
+    <form action="/users/form" method="POST">
+      <label>First Name</label>
+      <input type="text" name="first_name" placeholder="First Name" required/>
+     
+      
+      <label>Last Name</label>
+      <input type="text" name="last_name" placeholder="Last Name" required/>
+      
+      
+      <label >Email</label>
+      <input type="email" name="email" placeholder="Email" required/>
+      <p
+      style="color: red"
+      class='<%- JSON.stringify(errors.find((elem)=> elem.param === 'email')) ? "show" : 'hidden' %>'>
+      <%- JSON.stringify(errors.find((elem)=> elem.param === 'email') ? errors.find((elem)=> elem.param === 'email').msg : "") %></p>
+    
+      <label>Gender</label>
+      <input type="text" name="gender" placeholder="Gender" required />
+      <p
+      style="color: red"
+      class='<%- JSON.stringify(errors.find((elem)=> elem.param === 'gender')) ? "show" : 'hidden' %>'>
+      <%- JSON.stringify(errors.find((elem)=> elem.param === 'gender') ? errors.find((elem)=> elem.param === 'gender').msg : "") %></p>
+     
+      <label >Age</label>
+      <input type="number" name="age" placeholder="Age" required/>
+      <p
+      style="color: red"
+      class='<%- JSON.stringify(errors.find((elem)=> elem.param === 'age')) ? "show" : 'hidden' %>'>
+      <%- JSON.stringify(errors.find((elem)=> elem.param === 'age') ? errors.find((elem)=> elem.param === 'age').msg : "") %></p>
+
+      <label>Pincode</label>
+      <input type="number" name="pincode" placeholder="Pincode" required/>
+      <p
+      style="color: red"
+      class='<%- JSON.stringify(errors.find((elem)=> elem.param === 'pincode')) ? "show" : 'hidden' %>'>
+      <%- JSON.stringify(errors.find((elem)=> elem.param === 'pincode') ? errors.find((elem)=> elem.param === 'pincode').msg : "") %></p>
+      
+      <button type="submit"  id="inputButton">Register</button>
+    </form>
+  </div>
+  </body>
+  
+</html>
+
